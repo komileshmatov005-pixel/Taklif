@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ali & Laylo VIP Taklifnoma</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
+<style>
+/* Umumiy style */
+body {
+  margin:0;
+  font-family: 'Roboto', sans-serif;
+  color:white;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+/* Scroll Snap container */
+main {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+}
+
+/* Slaydlar */
+section {
+  width: 100%;
+  height: 100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start; /* dizaynga mos yozuv uchun */
+  scroll-snap-align: start;
+  padding:20px;
+  box-sizing:border-box;
+  position:relative;
+  overflow:hidden;
+  text-align:left;
+}
+
+/* Video slayd */
+#slide1 {
+  position: relative;
+  background-image: url('fon_backup.jpg'); /* video ishlamasa fallback rasm */
+  background-size: cover;
+  background-position: center;
+}
+#bgvideo {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-1;
+}
+
+/* Markaziy dekorativ elementlar */
+.decor-uzuk-left, .decor-flower-right {
+  position: absolute;
+  opacity:0.8;
+}
+
+/* Nikoh uzuklari chap pastda */
+.decor-uzuk-left {
+  bottom:10%;
+  left:5%;
+  width:80px;
+}
+
+/* Gul o'ng yuqorida */
+.decor-flower-right {
+  top:30%;
+  right:5%;
+  width:100px;
+}
+
+/* Yozuv dizaynga mos */
+.text-design {
+  position: absolute;
+  top:20%;   /* fon va elementga qarab moslash */
+  left:10%;
+  font-size: 4vw; 
+  font-family: 'Playfair Display', serif;
+  color: white;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+  line-height: 1.5;
+}
+
+/* Keyingi slaydlar dizayn */
+.slide2 {
+  background: linear-gradient(to bottom, rgba(245,176,65,0.8), rgba(235,152,78,0.8)), url('uzbek1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide3 {
+  background: linear-gradient(to bottom, rgba(93,173,226,0.8), rgba(40,116,166,0.8)), url('uzbek2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide4 {
+  background: linear-gradient(to bottom, rgba(88,214,141,0.8), rgba(40,180,99,0.8)), url('uzbek3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.slide5 {
+  background: linear-gradient(to bottom, rgba(175,122,197,0.8), rgba(142,68,173,0.8)), url('uzbek4.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Buttons */
+button {
+  padding:10px 25px;
+  border:none;
+  border-radius:15px;
+  margin-top:20px;
+  cursor:pointer;
+  font-size:1.2rem;
+  background: rgba(0,0,0,0.6);
+  color:white;
+  transition: all 0.3s ease;
+}
+button:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+/* Slayddagi rasmlar */
+section img {
+  max-width:80%;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+/* Fade animatsiya */
+.fade-in {
+  opacity:0;
+  transform: translateY(20px);
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.5s;
+}
+@keyframes fadeIn {
+  to {opacity:1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- AUDIO -->
+<audio id="mymusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+  Sizning brauzeringiz audio tagini qo‘llab-quvvatlamaydi.
+</audio>
+
+<script>
+const audio = document.getElementById('mymusic');
+window.addEventListener('load', () => {
+  const playPromise = audio.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(error => console.log('Autoplay audio bloklandi, foydalanuvchi bosishi kerak'));
+  }
+});
+document.body.addEventListener('click', () => {
+  audio.play();
+});
+</script>
+
+<main>
+  <!-- 1-SLAYD -->
+  <section id="slide1">
+    <video autoplay muted loop id="bgvideo">
+      <source src="VIDEO_LINK.mp4" type="video/mp4">
+    </video>
+    <img src="uzuk.png" class="decor-uzuk-left">
+    <img src="gul.png" class="decor-flower-right">
+    <div class="text-design fade-in">
+      💍 Ali & Laylo 💍<br>
+      25-aprel 2026<br>
+      Sho'rchi tumani
+    </div>
+  </section>
+
+  <!-- 2-SLAYD -->
+  <section class="slide2">
+    <div class="text-design fade-in">
+      📅 To‘y kuni: 25 Aprel 2026
+    </div>
+  </section>
+
+  <!-- 3-SLAYD -->
+  <section class="slide3">
+    <div class="text-design fade-in">
+      📍 Manzil: Sho'rchi tumani Ideal SS to'yxonasi
+    </div>
+    <img src="RASM.jpg" alt="To'y manzili" class="fade-in">
+    <iframe src="https://maps.app.goo.gl/TtreiTgdQAaSxq6SA" width="300" height="200"></iframe>
+  </section>
+
+  <!-- 4-SLAYD -->
+  <section class="slide4">
+    <div class="text-design fade-in">
+      Ikki daryo tutashsa - ummon boʻladi,<br>
+      ikki qalb birlashsa jahon boʻladi.<br>
+      Bizning kichik jahonimiz poydevori qoʻyilayotgan kunda mehmonimiz boʻling
+    </div>
+    <img src="RASMLINK.jpg" alt="To'y rasmi" class="fade-in">
+  </section>
+
+  <!-- 5-SLAYD -->
+  <section class="slide5">
+    <div class="text-design fade-in">
+      Sizni kutamiz!
+    </div>
+    <button onclick="alert('Kelaman')">✅ Kelaman</button>
+  </section>
+</main>
+
+</body>
+</html>
